@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2019 at 04:03 AM
+-- Generation Time: Jul 15, 2019 at 05:11 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -97,7 +97,11 @@ INSERT INTO `eventlog` (`id`, `ticketid`, `eventdate`, `status`, `clientid`, `su
 (9, 3, '2019-07-12 21:42:12', 'Open', 1232123424, 'Test ticket', 14, 45, 'janobe     ', 0, 2),
 (10, 4, '2019-07-13 14:05:20', 'Waiting on Client', 0, 'Test ticket 1234444', 14, 45, 'janobe ', 0, 2),
 (11, 5, '2019-07-13 15:44:14', 'Open', 21, 'Thank you', 14, 45, 'janobe ', 0, 1),
-(12, 5, '2019-07-13 15:45:00', 'Open', 21, 'Thank you', 14, 45, 'janobe  ', 0, 1);
+(12, 5, '2019-07-13 15:45:00', 'Open', 21, 'Thank you', 14, 45, 'janobe  ', 0, 1),
+(13, 1, '2019-07-14 13:16:08', 'Open', 1232123424, 'Test ticket', 14, 45, 'user_accounting ', 0, 1),
+(14, 2, '2019-07-14 13:17:37', 'Open', 21, 'Thank you', 14, 45, 'user_it ', 0, 2),
+(15, 1, '2019-07-14 13:20:42', 'Waiting on Client', 1232123424, 'Test ticket', 14, 45, 'lhermandez', 0, 2),
+(16, 2, '2019-07-14 13:43:02', 'Closed', 21, 'Thank you', 14, 45, 'user_it  ', 0, 5);
 
 -- --------------------------------------------------------
 
@@ -261,6 +265,14 @@ CREATE TABLE `tblreferhistory` (
   `notes` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tblreferhistory`
+--
+
+INSERT INTO `tblreferhistory` (`ReferID`, `ticketid`, `groupFrom`, `groupTo`, `username`, `daterefer`, `notes`) VALUES
+(1, '2', 2, 4, 'user_it', '2019-07-14', 'REFER TO ENGINEERING TESTING123'),
+(2, '2', 4, 5, 'jame_yap', '2019-07-14', 'refer to hr for final testing');
+
 -- --------------------------------------------------------
 
 --
@@ -288,6 +300,13 @@ CREATE TABLE `ticketnotes` (
   `notedate` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
+--
+-- Dumping data for table `ticketnotes`
+--
+
+INSERT INTO `ticketnotes` (`id`, `ticketid`, `note`, `user`, `notedate`) VALUES
+(1, 1, 'update updatge accounting', 'user_accounting', '2019-07-14 13:20:42');
+
 -- --------------------------------------------------------
 
 --
@@ -310,6 +329,14 @@ CREATE TABLE `tickets` (
   `lastupdate` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
+--
+-- Dumping data for table `tickets`
+--
+
+INSERT INTO `tickets` (`id`, `clientid`, `user`, `subject`, `categoryid`, `subcategoryid`, `comments`, `transferyn`, `groupid`, `opendate`, `parentticketid`, `assigneduser`, `lastupdate`) VALUES
+(1, 1232123424, 'user_accounting', 'Test ticket', 14, 45, 'test ticket  ', NULL, 2, '2019-07-14 13:16:00', 0, 'lhermandez', NULL),
+(2, 21, 'user_it', 'Thank you', 14, 45, 'Thankyoi  ', NULL, 5, '2019-07-14 13:17:34', 0, 'user_it  ', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -325,6 +352,18 @@ CREATE TABLE `ticketstatus` (
   `statusdate` datetime NOT NULL,
   `username` varchar(90) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `ticketstatus`
+--
+
+INSERT INTO `ticketstatus` (`id`, `ticketid`, `groupid`, `Notes`, `status`, `statusdate`, `username`) VALUES
+(1, 1, 0, '', 'Closed', '2019-07-14 13:16:00', ''),
+(2, 1, 0, '', 'Open', '2019-07-14 13:16:08', ''),
+(3, 2, 0, '', 'Open', '2019-07-14 13:17:34', ''),
+(4, 2, 0, '', 'Open', '2019-07-14 13:17:37', ''),
+(5, 1, 0, '', 'Waiting on Client', '2019-07-14 13:20:42', ''),
+(6, 2, 0, '', 'Closed', '2019-07-14 13:43:02', '');
 
 -- --------------------------------------------------------
 
@@ -351,7 +390,11 @@ INSERT INTO `users` (`id`, `username`, `password`, `salt`, `email`, `UserType`, 
 (11, 'lhermandez', 'a523b911377ba0d10169ea1a81e2ffe8770e507b9bc34008c6724d99a869a32416e20eb0e0b18b1ff8963f1f7df41f3e757a88142f23b47cc31ecd9abe0829b9', 'ea462b4e4193589023bb9edf69c4383c27d840bba7ecd2536b9b7d6351d764945dcd2ca58e06dabb210276aab96615638fca13261fecdaa0facd75c8084dd930', 'admin@admin.com', '', 0),
 (12, 'janobe', '44895d72ab86e17630f8dd7990872a931a6ccdad399c12b8c849ee7e28caaf6b29e895d9791b3a3f4697d197dce4cbc356db2a6fafafc56a010eefa36fe9065f', 'aea5566a4b9a97eaf6e594aa869a306a93167d6e0f7348c77916fe1c76ac1c9da0b42f97a34a905c87a3d761b1cfa17733b0d2e2892d7b08d3977e3aacba4039', 'janobe@gmail.com', 'Administrator', 0),
 (21, 'admin', '3c6d9b4e0d9d1d156b0123ad3f150f6f19931f882cc22302c2c857f446205c0039902ba811c08d9f5748b28d33c6c64a52477e77fa59b229a8124be454d377be', '470d2d19904747d8720361206a8f7126f4466cce4b9fda2722b4af333717e37fabbef41689d2b5b438e5499cd702f849f59ed46b058d75e76c15b5c252d542a4', 'bsapilar2019@gmail.com', 'Administrator', 3),
-(22, 'jake', '5f01ae530a9b5b03c2e150f6e6341ae0eb5fd1960740fa2526d243345bb545f77227d706051c9b609c99c9c72db138a298e53b549d4f6d407e4098c65ba5fac0', '2037ee54d7cdb0259ba4cfd22fd7aeb971f1c24247a5efa20ab29b9b7ffaef52da56d84e106c2dc8597345b06d9872f987862ba36309e04d0f8157098ab87ee7', 'jake@gmail.com', 'User', 1);
+(22, 'jake', '5f01ae530a9b5b03c2e150f6e6341ae0eb5fd1960740fa2526d243345bb545f77227d706051c9b609c99c9c72db138a298e53b549d4f6d407e4098c65ba5fac0', '2037ee54d7cdb0259ba4cfd22fd7aeb971f1c24247a5efa20ab29b9b7ffaef52da56d84e106c2dc8597345b06d9872f987862ba36309e04d0f8157098ab87ee7', 'jake@gmail.com', 'User', 1),
+(23, 'user_accounting', '6a5a2a0aa471ed82e851e31754d778f143328b9ee589019e3f53f59a409bdc26ad43f4c0743d5087bbd7e0a3c82c8821f167a9c077d4955918653f0f519c3cd4', '2b54cb8841fbea62fc62b6f3c3211618d5083f334c2d034a1a76fc5519ca1833f6fa31165365c6043c311832f652422c1b86fdb5cf6ea1b07b52f138b8d21961', 'user_1@yahoo.com', 'User', 1),
+(24, 'user_it', 'b8871732236f700d9362987901244d09519f9c57d771a21e6922cd18b585f3b40fcf579782e1bd9fc0f8af28e5f38c6814d69db5670583e2d3c596b44429925f', '0b2599d65280c675ada992c89732a9824bc51b25e7ef15f09c55fe7e61c6be7d95583748ece6306658b427e57377836c2547983de9189e36183e707c28baaed5', 'user_2@yahoo.com', 'User', 2),
+(25, 'jame_yap', 'f7894ed77b167e282e451ddd3d06b42c17b9a2d47c26be130ab96ae1a30f344a356dd10b8e66a581b2a3fa7eb8288a38ff4d8f269b48a032ac24f3dfe93e7750', 'f44254f681cba8a6b06ca9b6e7e476582854031d63ce7e42aafb6ff4356b08fe186296e00bfbfd3d3262d8b923cedd9637e519b2961b8deefe6d3845d0d2d61e', 'jamesyap@gmail.com', 'User', 4),
+(26, 'hr', 'e867cd84d75b58d7ad8b71866e2b30d29bda773dfffc22a0521a4c4e451973e6d5642d7ec0be39aaa197063a3eb537ec5bb524fdaf368f81e89b0b6c25cd93c2', '487f5f3d2f3202b07f1d66dbd38488a8961a31baea87fca7ed1c98f391a60edb5ce7a63180ed8992210f648890c2d3d111e63fb8486d79b91acdd3a0d69e8d94', 'hr@gmail.com', 'User', 5);
 
 --
 -- Indexes for dumped tables
@@ -456,7 +499,7 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT for table `eventlog`
 --
 ALTER TABLE `eventlog`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `groups`
@@ -492,31 +535,31 @@ ALTER TABLE `systemlanguage`
 -- AUTO_INCREMENT for table `tblreferhistory`
 --
 ALTER TABLE `tblreferhistory`
-  MODIFY `ReferID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ReferID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ticketnotes`
 --
 ALTER TABLE `ticketnotes`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ticketstatus`
 --
 ALTER TABLE `ticketstatus`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

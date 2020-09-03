@@ -18,15 +18,7 @@ include_once('include/class.system.php');
 $systemBrand = system::withName('brand'); # get branding for nav bar
 
 ?>
-<style type="text/css">
-    body{
-        background: #2575fc;
-          background: -webkit-linear-gradient(left, #35c73c, #2575fc);
-          background: -o-linear-gradient(left, #35c73c, #2575fc);
-          background: -moz-linear-gradient(left, #35c73c, #2575fc);
-          background: linear-gradient(left, #35c73c, #2575fc);
-    }
-</style>
+
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
     <div id="navContainer" class="container-fluid">
         <div class="navbar-header">

@@ -190,12 +190,17 @@ if (isset($_POST['updateTicket'])) {
 			                    <label for="status" class="col-sm-2 control-label">Status:</label>
 			                    <div class="col-sm-10">
 			                        <select class="form-control" name="status">
-			        			<option value="<?php echo ''. $ticket->getStatus(); ?>"><?php echo ''. $ticket->getStatus(); ?> </option>
-			        			<option value="Closed">Closed</option>
-			        			<option value="Open">Open</option>
-			        			<option value="Waiting on Client">Waiting On Client</option>
-			        			<option value="Waiting on Agent">Waiting On Agent</option>
-			        			<option value="Waiting on 3rd Party">Waiting On 3rd Party</option>
+			                        	<option value="<?php echo ''. $ticket->getStatus(); ?>"><?php echo ''. $ticket->getStatus(); ?> </option>
+					        			<!-- comment t -->
+			                        	<?php if ($ticket->getStatus()!='Closed') { ?><!-- comment this -->
+
+					        			<option value="Closed">Closed</option>
+					        			<option value="Open">Open</option>
+					        			<option value="Waiting on Client">Waiting On Client</option>
+					        			<option value="Waiting on Agent">Waiting On Agent</option>
+					        			<option value="Waiting on 3rd Party">Waiting On 3rd Party</option> 
+			        		 
+			                        	<?php } ?><!-- comment this -->
 		        			</select>
 			                    </div>
 			                </div>
@@ -206,7 +211,7 @@ if (isset($_POST['updateTicket'])) {
 			                        <textarea class="form-control" rows="5" name="ticketNote" id="ticketNote"></textarea>
 			                    </div>
 			                </div>
-
+ <?php if($_SESSION['usertype']=='Administrator'){ ?>
 			                <div class="form-group">
 			                    <label for="group" class="col-sm-2 control-label">Assigned group:</label>
 			                    <div class="col-sm-10">
@@ -219,8 +224,22 @@ if (isset($_POST['updateTicket'])) {
 			                    </div>
 			                </div>
 
+ <?php }else{ ?>
+						
+					       <div class="form-group">
+			                    <label for="group" class="col-sm-2 control-label">Assigned group:</label>
+			                    <div class="col-sm-10">
+			        		<select class="form-control" name="groupId">
+			        			<?php $department = department::withId($ticket->getGroupId()); ?>
+			        			<option value="<?php echo $department->getId(); ?> "> <?php echo ''. $department->getName(); ?> </option>
+			   			 
+			        		</select>
+			                    </div>
+			                </div>	  
 
-											<div class="form-group">
+ <?php } ?>
+ <?php if($_SESSION['usertype']=='Administrator'){ ?>
+			                			<div class="form-group">
 												<label for="assignedUser" class="col-sm-2 control-label">Assigned User:</label>
 												<div class="col-sm-10">
 													<select class="form-control" name="assignedUser">
@@ -229,7 +248,17 @@ if (isset($_POST['updateTicket'])) {
 													</select>
 												</div>
 											</div>
+ <?php }else{ ?>
 
+ 					<div class="form-group">
+												<label for="assignedUser" class="col-sm-2 control-label">Assigned User:</label>
+												<div class="col-sm-10">
+													<select class="form-control" name="assignedUser">
+														<option value="<?php echo ''. $ticket->getAssignedUser();?> "> <?php echo ''. $ticket->getAssignedUser();?></option> 
+													</select>
+												</div>
+											</div>
+ <?php } ?>
 											<div class="form-group">
 												<label for="comments" class="col-sm-2 control-label">Upload</label>
 													<div class="col-sm-10">
