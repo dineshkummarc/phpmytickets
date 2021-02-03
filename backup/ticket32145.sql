@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2021 at 11:57 AM
+-- Generation Time: Feb 03, 2021 at 12:35 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -274,17 +274,6 @@ CREATE TABLE `tickets` (
   `assigneduser` varchar(30) DEFAULT NULL,
   `lastupdate` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tickets`
---
-
-INSERT INTO `tickets` (`id`, `clientid`, `user`, `subject`, `categoryid`, `subcategoryid`, `comments`, `transferyn`, `groupid`, `opendate`, `parentticketid`, `assigneduser`, `lastupdate`) VALUES
-(94, 10, 'dineshkummarc', 'test ticket', 14, 39, 'test tickettest tickettest tickettest tickettest tickettest ticket  ', NULL, NULL, '2020-09-04 21:44:10', 0, 'dineshkummarc  ', NULL),
-(95, 10, 'dineshkummarc', 'Test for the creation of ticket', 14, NULL, 'Test for the creation of ticket, Test for the creation of ticket, Test for the creation of ticket', NULL, NULL, '2020-09-05 11:27:19', 0, 'dineshkummarc', NULL),
-(96, 10, 'dineshkummarc', 'Test for the creation of ticket', 14, NULL, 'Test for the creation of ticket, Test for the creation of ticket, Test for the creation of ticket', NULL, NULL, '2020-09-05 11:30:01', 0, 'dineshkummarc', NULL),
-(97, 11, 'admin', 'My Newletter List', 14, 39, 'My Newletter List', NULL, NULL, '2021-02-03 13:51:51', 0, 'admin', NULL),
-(98, 11, 'admin', 'New Ticket', 14, 0, 'My Newletter ListMy Newletter List', NULL, NULL, '2021-02-03 13:53:25', 0, 'admin', NULL);
 
 -- --------------------------------------------------------
 
