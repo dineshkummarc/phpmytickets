@@ -81,10 +81,10 @@ if (isset($_POST['addQuickTicket'])) {
         <div class="panel-body">
             <form class="form-horizontal" method="POST" action="#" enctype="multipart/form-data">
                 <div class="form-group">
-                    <input type="text" name="user" value="<?php echo '' . $_SESSION['username']; ?>" hidden />
+                    <input type="text" name="user" value="<?php echo ''. $_SESSION['username']; ?>" hidden />
                     <label for="clientId" class="col-sm-2 control-label">Client #</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="clientId" name="clientId" placeholder="e.g. 912752">
+                        <input type="text" class="form-control" id="clientId" disabled name="clientId" placeholder="e.g. 912752">
                     </div>
                 </div>
                 <div class="form-group">
