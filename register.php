@@ -58,8 +58,6 @@ include_once 'include/functions.php';
 						<p>Return to the <a href="index.php">login page</a>.</p>
 					</div>
 				</div>
-			</div> 
-
-      
+			</div>      
     </body>
 </html>
