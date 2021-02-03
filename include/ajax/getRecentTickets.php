@@ -43,6 +43,7 @@ if ($result->num_rows > 0) {
 	           			<td>' . $row['subject']  .'</td>
 	           			<td>' . $row['category']  .'</td>
 	           			<td>' . $row['subcategory']  .'</td>
+	           			<td>' . $row['datecreated']  .'</td>
 	           			<td>' . $row['assigneduser'] . '</td>
 	           			<td><form method="POST" action="./tickets.php">
 	           				<input name="ticketId" value="' . $row['ticketid'] . '" type="text" hidden />
