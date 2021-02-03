@@ -90,8 +90,6 @@ class ticket {
 			} return true;
    	}
 
-
-
    	/**
    	 * get ticket by ticket Id
    	 */
