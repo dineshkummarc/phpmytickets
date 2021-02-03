@@ -421,6 +421,7 @@ class ticket {
 				       			<td>' .$row['clientid'] .'</td>
 				       			<td>' . $row['comments']  .'</td>
 				       			<td>' . $row['assigneduser'] . '</td>
+				       			<td>' . $row['datecreated'] . '</td>
 				       			<td><form method="POST" action="./tickets.php">
 				       				<input name="ticketId" value="' . $row['ticketid'] . '" type="text" hidden />
 				       				<button type="submit" class="'.$class .'">'.$row['status'] .'</button></form>
@@ -474,6 +475,7 @@ class ticket {
 				       			<td>' . $row['subject']  .'</td>
 				       			<td>' . $row['category']  .'</td>
 				       			<td>' . $row['subcategory']  .'</td>
+				       			<td>' . $row['datecreated'] . '</td>
 				       			<td>' . $row['assigneduser'] . '</td>
 				       			<td><form method="POST" action="./tickets.php">
 				       				<input name="ticketId" value="' . $row['ticketid'] . '" type="text" hidden />
@@ -522,5 +524,4 @@ class ticket {
 	public function getAttachment() {return $this->attachment;}
 
 }
-
 ?>
