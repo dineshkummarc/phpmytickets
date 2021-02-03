@@ -146,7 +146,7 @@ if (isset($_POST['updateTicket'])) {
 			                <div class="form-group">
 			                    <label for="ClientId" class="col-sm-2 control-label">Client# </label>
 			                    <div class="col-sm-10">
-			                    	<input class="form-control" name="ClientId" type="text"  value="<?php echo ''. $ticket->getClientId(); ?>" />
+			                    	<input class="form-control" name="ClientId" disabled type="text"  value="<?php echo ''. $ticket->getClientId(); ?>" />
 			                    </div>
 			                </div>
 
@@ -168,6 +168,13 @@ if (isset($_POST['updateTicket'])) {
 			                    <label for="user" class="col-sm-2 control-label">Created By:</label>
 			                    <div class="col-sm-10">
 			                    	<input class="form-control" name="user" disabled type="text"  value="<?php echo ''. $ticket->getUser(); ?>" />
+			                    </div>
+			                </div>
+
+			                <div class="form-group">
+			                    <label for="user" class="col-sm-2 control-label">Created Date:</label>
+			                    <div class="col-sm-10">
+			                    	<input class="form-control" name="user" disabled type="date"  value="date" />
 			                    </div>
 			                </div>
 
