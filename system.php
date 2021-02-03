@@ -64,8 +64,6 @@ if (isset($_POST['saveSettings'])) {
 	$setting->setName('system email');
 	$setting->setValue($_POST['email']);
 	$setting->update();
-
-
 }
 ?>
 
@@ -203,9 +201,6 @@ if ($_GET['maintenace'] == 'system') { ?>
 
         		</div>
        		</div>
-
-
-
        		 <?php } ?>
 
 </div>
