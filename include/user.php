@@ -40,8 +40,7 @@ class user {
 	public function setId($id) {$this->id = $id;}
 	public function setName($name) {$this->name = $name;}
 	public function setEmail($email) {$this->email = $email;}
-	
-	
+		
 	public static function displayUserOptionList() {
 		$mysqli = dbConnect();
 		$sql = "select * from users";
@@ -55,9 +54,5 @@ class user {
 		}
 	}
 
-
 }	
-
-
-
 ?>
