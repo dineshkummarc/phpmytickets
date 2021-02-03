@@ -225,8 +225,6 @@ if (isset($_POST['updateTicket'])) {
 			        		</select>
 			                    </div>
 			                </div>
-
-
 											<div class="form-group">
 												<label for="assignedUser" class="col-sm-2 control-label">Assigned User:</label>
 												<div class="col-sm-10">
@@ -276,5 +274,4 @@ if (isset($_POST['updateTicket'])) {
         echo 'You are not authorized to access this page redirecting you to the <a href="./index.php">login page</a>.';
         echo '<META http-equiv="refresh" content="2;URL=./index.php">';
 }
-
 ?>
