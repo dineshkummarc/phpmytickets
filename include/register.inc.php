@@ -1,4 +1,4 @@
-<?php
+s<?php
 include_once 'connect.php';
  
 $error_msg = "";
