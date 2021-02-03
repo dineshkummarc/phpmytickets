@@ -1,5 +1,5 @@
 # Ticket Desk
-Centralized ticketing system for a help desk, call center, dev team, or whatever you need. Check out a live demo here: http://devmonkeyz.com/ticketdev/ it's always running the latest code and anyone can register. 
+Centralized ticketing system for a help desk, call center, dev team, or whatever you need. It's always running the latest code and anyone can register.
 
 ## Install
 The install process is fairly manual. We'll make automated install scripts in the future.
@@ -13,4 +13,3 @@ The install process is fairly manual. We'll make automated install scripts in th
 
 ## Road map
 Check the issues section there are a few items and enhancements that still need to be developed. The largest remaining task is implementing multiple languages.
-
