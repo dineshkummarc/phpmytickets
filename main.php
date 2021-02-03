@@ -102,6 +102,14 @@ if (isset($_POST['addQuickTicket'])) {
                         </select>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label for="subject" class="col-sm-2 control-label">Date Created</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" id="date" name="date">
+                    </div>
+                </div>
+
                 <div id="subCategorySelect"></div>
                 <div class="form-group">
                     <label for="comments" class="col-sm-2 control-label">Details</label>
