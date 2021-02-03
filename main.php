@@ -103,6 +103,8 @@ if (isset($_POST['addQuickTicket'])) {
                     </div>
                 </div>
 
+                <div id="subCategorySelect"></div>
+
                 <div class="form-group">
                     <label for="subject" class="col-sm-2 control-label">Date Created</label>
                     <div class="col-sm-10">
@@ -110,7 +112,6 @@ if (isset($_POST['addQuickTicket'])) {
                     </div>
                 </div>
 
-                <div id="subCategorySelect"></div>
                 <div class="form-group">
                     <label for="comments" class="col-sm-2 control-label">Details</label>
                     <div class="col-sm-10">
