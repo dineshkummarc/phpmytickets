@@ -253,9 +253,6 @@ if (isset($_POST['updateTicket'])) {
 									        <button name="updateTicket" class="btn btn-primary" type="submit">Update</button>
 									      </div>
 									    </div>
-
-
-
 	        		</form>
 	        		</div>
 	        	</div>
