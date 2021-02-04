@@ -46,6 +46,9 @@ $(document).on('change', ':file', function() {
 	<li id="subMenuOpen"><a href="./tickets.php?ticketId=open">Open</a></li>
 	<li id="subMenuClient" ><a href="./tickets.php?ticketId=woc">Waiting on Client</a></li>
 	<li id="subMenuAgent" ><a href="./tickets.php?ticketId=woa">Waiting on Agent</a></li>
+	<li id="subMenuInp"><a href="./tickets.php?ticketId=inp">In Progress</a></li>
+	<li id="subMenuNa"><a href="./tickets.php?ticketId=na">Not Applicable</a></li>
+	<li id="subMenuRejected"><a href="./tickets.php?ticketId=rejected">Rejected</a></li>
 	<li id="subMenuClosed"><a href="./tickets.php?ticketId=closed">Closed</a></li>
     </ul>
   </div>
