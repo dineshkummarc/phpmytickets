@@ -122,15 +122,15 @@ if (isset($_POST['updateTicket'])) {
 								<?php ticket::displayTickets('Waiting on client'); ?>
 
 								<?php } elseif ($ticketId == 'inp') { ?>
-								<script>$("#subMenuClosed").addClass("active"); </script>
+								<script>$("#subMenuInp").addClass("active"); </script>
 								<?php ticket::displayTickets('In Progress'); ?>
 
 								<?php } elseif ($ticketId == 'na') { ?>
-								<script>$("#subMenuClosed").addClass("active"); </script>
+								<script>$("#subMenuNa").addClass("active"); </script>
 								<?php ticket::displayTickets('Not Applicable'); ?>
 
 								<?php } elseif ($ticketId == 'rejected') { ?>
-								<script>$("#subMenuClosed").addClass("active"); </script>
+								<script>$("#subMenuRejected").addClass("active"); </script>
 								<?php ticket::displayTickets('Rejected'); ?>
 
 
