@@ -133,7 +133,6 @@ if (isset($_POST['updateTicket'])) {
 								<script>$("#subMenuRejected").addClass("active"); </script>
 								<?php ticket::displayTickets('Rejected'); ?>
 
-
 						<?php } elseif ($ticketId == 'closed') { ?>
 								<script>$("#subMenuClosed").addClass("active"); </script>
 								<?php ticket::displayTickets('Closed'); ?>
