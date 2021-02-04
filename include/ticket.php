@@ -416,6 +416,9 @@ class ticket {
 				if ($row['status'] == 'Closed') { $class = "btn btn-danger";}
 				elseif ($row['status'] == 'Open') { $class = "btn btn-success";}
 				elseif ($row['status'] == 'Waiting on Client') {$class = "btn btn-info";}
+				elseif ($row['status'] == 'In Progress') {$class = "btn btn-info";}
+	            elseif ($row['status'] == 'Not Applicable') {$class = "btn btn-info";}
+	            elseif ($row['status'] == 'Rejected') {$class = "btn btn-danger";}
 				else { $class = "btn btn-warning"; }
 		       		echo '<tr>
 				       			<td>' .$row['clientid'] .'</td>
@@ -469,6 +472,9 @@ class ticket {
 				if ($row['status'] == 'Closed') { $class = "btn btn-danger";}
 				elseif ($row['status'] == 'Open') { $class = "btn btn-success";}
 				elseif ($row['status'] == 'Waiting on Client') {$class = "btn btn-info";}
+				elseif ($row['status'] == 'In Progress') {$class = "btn btn-info";}
+	            elseif ($row['status'] == 'Not Applicable') {$class = "btn btn-info";}
+	            elseif ($row['status'] == 'Rejected') {$class = "btn btn-danger";}
 				else { $class = "btn btn-warning"; }
 		       		echo '<tr>
 				       			<td>' .$row['clientid'] .'</td>
