@@ -409,7 +409,7 @@ class ticket {
 
 
 		$result = $mysqli->query($sql);
-		echo '<table class="table"><th>Client#</th><th>Comments</th><th>Assigned</th><th>Status</th>';
+		echo '<table class="table"><th>Client#</th><th>Comments</th><th>Assigned</th><th>Date Created</th><th>Status</th>';
 		if ($result->num_rows > 0) {
 			// output data of each row
 			while($row = $result->fetch_assoc()) {
@@ -460,7 +460,7 @@ class ticket {
 				    order by opendate desc limit 5";
 
 		$result = $mysqli->query($sql);
-		echo '<table class="table"><th>Client#</th><th>Subject</th><th>Category</th><th>Sub Category</th><th>Assigned</th><th>Status</th>';
+		echo '<table class="table"><th>Client#</th><th>Subject</th><th>Category</th><th>Sub Category</th><th>Date Created</th><th>Assigned</th><th>Status</th>';
 		if ($result->num_rows > 0) {
 			// output data of each row
 			while($row = $result->fetch_assoc()) {
