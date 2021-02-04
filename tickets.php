@@ -120,6 +120,20 @@ if (isset($_POST['updateTicket'])) {
 						<?php } elseif ($ticketId == 'woc') {  ?>
 								<script>$("#subMenuClient").addClass("active"); </script>
 								<?php ticket::displayTickets('Waiting on client'); ?>
+
+								<?php } elseif ($ticketId == 'inp') { ?>
+								<script>$("#subMenuClosed").addClass("active"); </script>
+								<?php ticket::displayTickets('In Progress'); ?>
+
+								<?php } elseif ($ticketId == 'na') { ?>
+								<script>$("#subMenuClosed").addClass("active"); </script>
+								<?php ticket::displayTickets('Not Applicable'); ?>
+
+								<?php } elseif ($ticketId == 'rejected') { ?>
+								<script>$("#subMenuClosed").addClass("active"); </script>
+								<?php ticket::displayTickets('Rejected'); ?>
+
+
 						<?php } elseif ($ticketId == 'closed') { ?>
 								<script>$("#subMenuClosed").addClass("active"); </script>
 								<?php ticket::displayTickets('Closed'); ?>
