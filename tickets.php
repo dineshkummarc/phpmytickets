@@ -203,6 +203,9 @@ if (isset($_POST['updateTicket'])) {
 			        			<option value="Waiting on Client">Waiting On Client</option>
 			        			<option value="Waiting on Agent">Waiting On Agent</option>
 			        			<option value="Waiting on 3rd Party">Waiting On 3rd Party</option>
+			        			<option value="In Progress">In Progress</option>
+			        			<option value="Not Applicable">Not Applicable</option>
+			        			<option value="Rejected">Rejected</option>
 		        			</select>
 			                    </div>
 			                </div>
