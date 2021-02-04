@@ -96,6 +96,9 @@ if(login_check(dbConnect()) == true) {
 		    	<option value="Waiting on agent">Waiting on Agent</option>
 		    	<option value="Waiting on client">Waiting on Client</option>
 		    	<option value="Waiting on 3rd Party">Waiting on 3rd Party</option>
+		    	<option value="In Progress">In Progress</option>
+		    	<option value="Not Applicable">Not Applicable</option>
+		    	<option value="Rejected">Rejected</option>
 		    </select>
 		    </div>
 		  </div>
