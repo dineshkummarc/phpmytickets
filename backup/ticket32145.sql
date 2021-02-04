@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2021 at 12:35 PM
+-- Generation Time: Feb 04, 2021 at 12:49 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -37,8 +37,12 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`) VALUES
-(14, 'System'),
-(15, 'Localhost');
+(26, 'High'),
+(25, 'Blocker'),
+(24, 'General'),
+(23, 'Critical'),
+(27, 'Medium'),
+(28, 'Low');
 
 -- --------------------------------------------------------
 
@@ -78,8 +82,16 @@ CREATE TABLE `eventlog` (
 --
 
 INSERT INTO `eventlog` (`id`, `ticketid`, `eventdate`, `status`, `clientid`, `subject`, `categoryid`, `subcategoryid`, `assigneduser`, `parentticketid`, `groupid`) VALUES
-(1, 94, '2020-09-04 21:45:25', 'Open', 1007, 'test ticket', 14, 39, 'dineshkummarc ', 0, 2),
-(2, 94, '2020-09-04 23:03:46', 'Open', 1007, 'test ticket', 14, 39, 'dineshkummarc  ', 0, 0);
+(12, 115, '2021-02-04 12:21:27', 'Rejected', NULL, 'My First Ticket for user admin', 16, 42, 'admin     ', 0, 0),
+(11, 115, '2021-02-04 12:21:10', 'Not Applicable', NULL, 'My First Ticket for user admin', 16, 42, 'admin    ', 0, 0),
+(10, 115, '2021-02-04 12:20:18', 'In Progress', NULL, 'My First Ticket for user admin', 16, 42, 'admin   ', 0, 0),
+(9, 115, '2021-02-04 07:00:25', 'Waiting on Agent', NULL, 'My First Ticket for user admin', 16, 42, 'admin  ', 0, 0),
+(8, 115, '2021-02-04 06:55:31', 'Waiting on Client', NULL, 'My First Ticket for user admin', 16, 42, 'admin ', 0, 5),
+(13, 118, '2021-02-04 14:27:29', 'In Progress', NULL, 'My ticket with Status in progress', 16, 42, 'admin ', 0, 0),
+(14, 119, '2021-02-04 14:31:58', 'Waiting on Agent', NULL, 'My ticket with Status WOA', 0, NULL, 'admin ', 0, 0),
+(15, 120, '2021-02-04 14:33:16', 'Waiting on Client', NULL, 'My ticket with Status WOC', 0, NULL, 'admin ', 0, 0),
+(16, 121, '2021-02-04 14:34:32', 'Waiting on 3rd Party', NULL, 'My ticket with Status WO3P', 0, NULL, 'admin ', 0, 0),
+(17, 122, '2021-02-04 14:36:31', 'Not Applicable', NULL, 'My ticket with Status NA', 0, NULL, 'admin ', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -97,9 +109,13 @@ CREATE TABLE `groups` (
 --
 
 INSERT INTO `groups` (`id`, `name`) VALUES
-(1, 'accounting'),
+(1, 'Accounting'),
 (2, 'IT'),
-(3, 'Marketing');
+(3, 'Marketing'),
+(4, 'QA'),
+(5, 'Testing'),
+(6, 'Management'),
+(7, 'Finance');
 
 -- --------------------------------------------------------
 
@@ -129,9 +145,8 @@ CREATE TABLE `subcategories` (
 --
 
 INSERT INTO `subcategories` (`id`, `name`, `categoryid`) VALUES
-(39, 'Subsystem', 14),
-(40, 'Rocket', 15),
-(41, 'RHSApp', 15);
+(43, 'Rocket', 24),
+(42, 'Rocket', 16);
 
 -- --------------------------------------------------------
 
@@ -217,7 +232,10 @@ INSERT INTO `systemlanguage` (`id`, `language`, `keyword`, `value`) VALUES
 (40, 'english', 'Password', 'Password'),
 (41, 'english', 'Add', 'Add'),
 (42, 'english', 'Delete', 'Delete'),
-(43, 'english', 'Save', 'Save');
+(43, 'english', 'Save', 'Save'),
+(44, 'english', 'In Progress', 'In Progress'),
+(45, 'english', 'Not Applicable', 'Not Applicable'),
+(46, 'english', 'Rejected', 'Rejected');
 
 -- --------------------------------------------------------
 
@@ -246,13 +264,6 @@ CREATE TABLE `ticketnotes` (
   `notedate` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `ticketnotes`
---
-
-INSERT INTO `ticketnotes` (`id`, `ticketid`, `note`, `user`, `notedate`) VALUES
-(112, 94, 'test ticket test ticket test ticket test ticket', 'dineshkummarc', '2020-09-04 21:45:23');
-
 -- --------------------------------------------------------
 
 --
@@ -275,6 +286,20 @@ CREATE TABLE `tickets` (
   `lastupdate` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tickets`
+--
+
+INSERT INTO `tickets` (`id`, `clientid`, `user`, `subject`, `categoryid`, `subcategoryid`, `comments`, `transferyn`, `groupid`, `opendate`, `parentticketid`, `assigneduser`, `lastupdate`) VALUES
+(122, NULL, 'admin', 'My ticket with Status NA', 0, NULL, 'My ticket with Status NA ', NULL, NULL, '2021-02-04 14:36:17', 0, 'admin ', NULL),
+(121, NULL, 'admin', 'My ticket with Status WO3P', 0, NULL, 'My ticket with Status WO3P ', NULL, NULL, '2021-02-04 14:34:22', 0, 'admin ', NULL),
+(120, NULL, 'admin', 'My ticket with Status WOC', 0, NULL, 'My ticket with Status WOC ', NULL, NULL, '2021-02-04 14:33:06', 0, 'admin ', NULL),
+(119, NULL, 'admin', 'My ticket with Status WOA', 0, NULL, 'My ticket with Status WOA ', NULL, NULL, '2021-02-04 14:31:46', 0, 'admin ', NULL),
+(118, NULL, 'admin', 'My ticket with Status in progress', 16, 42, 'My ticket with Status in progress ', NULL, NULL, '2021-02-04 14:27:17', 0, 'admin ', NULL),
+(117, NULL, 'admin', 'My ticket with Status Closed', 0, NULL, 'My ticket with Status Closed', NULL, NULL, '2021-02-04 14:23:02', 0, 'admin', NULL),
+(116, NULL, 'admin', 'My ticket with Status Open', 16, 42, 'My ticket with Status Open', NULL, NULL, '2021-02-04 14:22:37', 0, 'admin', NULL),
+(115, NULL, 'admin', 'My First Ticket for user admin', 16, 42, 'My First Ticket for user admin     ', NULL, NULL, '2021-02-04 06:54:58', 0, 'admin     ', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -293,13 +318,24 @@ CREATE TABLE `ticketstatus` (
 --
 
 INSERT INTO `ticketstatus` (`id`, `ticketid`, `status`, `statusdate`) VALUES
-(333, 94, 'Open', '2020-09-04 21:44:10'),
-(334, 94, 'Open', '2020-09-04 21:45:25'),
-(335, 94, 'Open', '2020-09-04 23:03:46'),
-(336, 95, 'Closed', '2020-09-05 11:27:19'),
-(337, 96, 'Closed', '2020-09-05 11:30:01'),
-(338, 97, 'Open', '2021-02-03 13:51:51'),
-(339, 98, 'Open', '2021-02-03 13:53:25');
+(357, 118, 'In Progress', '2021-02-04 14:27:29'),
+(356, 118, 'Open', '2021-02-04 14:27:17'),
+(355, 117, 'Closed', '2021-02-04 14:23:02'),
+(354, 116, 'Open', '2021-02-04 14:22:37'),
+(353, 115, 'Rejected', '2021-02-04 12:21:27'),
+(352, 115, 'Not Applicable', '2021-02-04 12:21:10'),
+(351, 115, 'In Progress', '2021-02-04 12:20:18'),
+(350, 115, 'Waiting on Agent', '2021-02-04 07:00:25'),
+(349, 115, 'Waiting on Client', '2021-02-04 06:55:31'),
+(348, 115, 'Open', '2021-02-04 06:54:58'),
+(358, 119, 'Open', '2021-02-04 14:31:46'),
+(359, 119, 'Waiting on Agent', '2021-02-04 14:31:58'),
+(360, 120, 'Open', '2021-02-04 14:33:06'),
+(361, 120, 'Waiting on Client', '2021-02-04 14:33:16'),
+(362, 121, 'Open', '2021-02-04 14:34:22'),
+(363, 121, 'Waiting on 3rd Party', '2021-02-04 14:34:32'),
+(364, 122, 'Open', '2021-02-04 14:36:17'),
+(365, 122, 'Not Applicable', '2021-02-04 14:36:31');
 
 -- --------------------------------------------------------
 
@@ -409,7 +445,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `clients`
@@ -421,13 +457,13 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT for table `eventlog`
 --
 ALTER TABLE `eventlog`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `status`
@@ -439,7 +475,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `subcategories`
 --
 ALTER TABLE `subcategories`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `system`
@@ -451,25 +487,25 @@ ALTER TABLE `system`
 -- AUTO_INCREMENT for table `systemlanguage`
 --
 ALTER TABLE `systemlanguage`
-  MODIFY `id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `ticketnotes`
 --
 ALTER TABLE `ticketnotes`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- AUTO_INCREMENT for table `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 
 --
 -- AUTO_INCREMENT for table `ticketstatus`
 --
 ALTER TABLE `ticketstatus`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=340;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=366;
 
 --
 -- AUTO_INCREMENT for table `users`
