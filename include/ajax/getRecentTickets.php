@@ -5,7 +5,7 @@ $mysqli = dbConnect();
 
 $selectvalue =  $_GET['svalue'];
 
-echo '<table class="table"><th>Client#</th><th>Subject</th><th>Category</th><th>Sub Category</th><th>Assigned</th><th>Status</th>';
+echo '<table class="table"><th>Client#</th><th>Subject</th><th>Category</th><th>Sub Category</th><th>Date Created</th><th>Assigned</th><th>Status</th>';
 $sql = "select
 	t.id as ticketid,
 	t.clientid, 
