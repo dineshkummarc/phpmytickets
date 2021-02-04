@@ -45,6 +45,10 @@ $systemBrand = system::withName('brand'); # get branding for nav bar
                         <li><a href="./tickets.php?ticketId=woc">Waiting on Client</a></li>
                         <li><a href="./tickets.php?ticketId=woa">Waiting on Agent</a></li>
                         <li role="separator" class="divider"></li>
+                        <li><a href="./tickets.php?ticketId=inp">In Progress</a></li>
+                        <li><a href="./tickets.php?ticketId=na">Not Applicable</a></li>
+                        <li><a href="./tickets.php?ticketId=rejected">Rejected</a></li>
+                        <li role="separator" class="divider"></li>
                         <li><a href="./tickets.php?ticketId=closed">Closed</a></li>
                     </ul>
                 </li>
